@@ -23,6 +23,4 @@ jobs:
           pipx install poetry
           poetry --version
       - name: Build tap on Python ${{ matrix.python-version }} 
-        run: |
-          poetry env use ${{ matrix.python-version }}
-          poetry debug
+        run: poetry env use ${{ matrix.python-version }}
