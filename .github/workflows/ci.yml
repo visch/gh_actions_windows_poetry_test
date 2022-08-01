@@ -27,20 +27,7 @@ jobs:
         run: |
           pipx install poetry
           poetry --version
-      - name: Upgrade pip
-        env:
-          PIP_CONSTRAINT: .github/workflows/resources/constraints.txt
-        run: |
-          pip install pip
-          pip --version
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry env use ${{ matrix.python-version }}
           poetry debug
-    
-      - name: Install Nox
-        env:
-          PIP_CONSTRAINT: .github/workflows/resources/constraints.txt
-        run: |
-          pipx install nox
-          pipx inject nox nox-poetry
