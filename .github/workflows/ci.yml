@@ -35,7 +35,6 @@ jobs:
           pip --version
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
-          poetry build
           poetry env use ${{ matrix.python-version }}
           poetry debug
     
