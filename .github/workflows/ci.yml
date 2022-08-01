@@ -20,10 +20,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry
-        run: |
+        run: >
           pipx install poetry
-          poetry --version
+          && poetry --version
       - name: Build tap on Python ${{ matrix.python-version }} 
-        run: |
+        run: >
           poetry env use purposelyfail
-          poetry debug
+          && poetry debug
