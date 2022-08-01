@@ -18,10 +18,21 @@ jobs:
         uses: actions/setup-python@v4.1.0
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+          architecture: x64
+          cache: 'pip'
+          cache-dependency-path: 'poetry.lock'
+      - name: Install Poetry
+        env:
+          PIP_CONSTRAINT: .github/workflows/resources/constraints.txt
         run: |
-          python -m pip install --upgrade pip
-          pip install poetry==1.1.14
+          pipx install poetry
+          poetry --version
+      - name: Upgrade pip
+        env:
+          PIP_CONSTRAINT: .github/workflows/resources/constraints.txt
+        run: |
+          pip install pip
+          pip --version
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry build
