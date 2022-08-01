@@ -26,4 +26,4 @@ jobs:
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry env use ${{ matrix.python-version }}
-          exit 0
+          echo $LASTEXITCODE
