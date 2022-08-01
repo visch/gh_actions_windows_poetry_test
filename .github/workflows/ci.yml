@@ -27,4 +27,3 @@ jobs:
         run: |
           poetry env use purposelyfail
           poetry debug
-        shell: powershell
