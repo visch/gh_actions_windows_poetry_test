@@ -23,10 +23,6 @@ jobs:
         run: |
           pipx install poetry
           poetry --version
-      - name: Test failures
-        run: |
-          exit 1
-          exit 0
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry env use ${{ matrix.python-version }}
