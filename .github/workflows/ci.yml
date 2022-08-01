@@ -10,7 +10,8 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9]
-        os: [windows-latest]
+        os: [windows-latest, ubuntu-latest]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v3.0.2
@@ -25,4 +26,4 @@ jobs:
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry env use ${{ matrix.python-version }}
-          does it matter what is here?
+          exit 0
