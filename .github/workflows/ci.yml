@@ -26,3 +26,4 @@ jobs:
       - name: Build tap on Python ${{ matrix.python-version }} 
         run: |
           poetry env use purposelyfail
+          poetry debug
